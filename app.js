@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
-const { post, list, get } = require("./controllers/artist");
+const { post, list, get, put } = require("./controllers/artist");
 
 require("dotenv").config({
   path: path.join(__dirname, "./settings.env")
@@ -25,6 +25,8 @@ app.post("/artist", post);
 app.get("/artist", list);
 
 app.get("/artist/:artistId", get);
+
+app.get("/artist/:artistId", put);
 
 app.listen(3000, () => {
   console.log("It Works!!, Listening on port 3000");

@@ -43,6 +43,16 @@ describe("Artist POST Endpoint", () => {
     });
   });
 });
+
+afterEach(done => {
+  Artist.collection.drop(e => {
+    if (e) {
+      console.log(e);
+    }
+    done();
+  });
+});
+
 afterAll(done => {
   mongoose.disconnect().then(() => {
     setTimeout(done, 500);
